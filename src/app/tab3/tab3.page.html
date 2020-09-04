@@ -1,17 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
+    <ion-item slot="start">
+      <ion-input #latLong type="text" placeholder="latitude,longitude" (keyup.enter)="getLocation(latLong.value)"></ion-input>
+      <ion-button (click)="getLocation(latLong.value)">Go</ion-button>
+    </ion-item>
+    
+    <ion-title class="ion-text-center">
+      Ionic GoogleMaps
     </ion-title>
+    <ion-button slot="end" (click)="getMyLocation($event)">MyLocation</ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content padding>
+  <div id="map_canvas3">
+    <ion-text #cirInput>Drag marker to change radius</ion-text>
+  </div>
 </ion-content>
